@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Amstrad SNA",
+        "type": "process",
+        "group": {"kind": "build","isDefault": true},
+        "command": "VSCrocodium\\data\\apps\\rasm.exe",
+        "args": ["${file}","-oa"],
+        "problemMatcher": "$errmatcher-rasm"
+      },
+      {
+        "label": "Build&Test Amstrad SNA",
+        "type": "process",
+        "group": {"kind": "build"},
+        "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
+        "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.sna"],
+        "dependsOn": "Build Amstrad SNA"
+      }
+    ]
+  }
