@@ -2,20 +2,34 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "Build Amstrad SNA",
+        "label": "Build Bin/DSK/CPR/SNA",
         "type": "process",
-        "group": {"kind": "build","isDefault": true},
         "command": "VSCrocodium\\data\\apps\\rasm.exe",
-        "args": ["${file}","-oa"],
-        "problemMatcher": "$errmatcher-rasm"
+        "args": [
+          "${file}",
+          "-oa"
+        ],
+        "problemMatcher": "$errmatcher-rasm",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
       },
       {
-        "label": "Build&Test Amstrad SNA",
+        "label": "(SNA) Build&Test",
         "type": "process",
-        "group": {"kind": "build"},
+        "group": "build",
         "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
         "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.sna"],
-        "dependsOn": "Build Amstrad SNA"
+        "dependsOn": "Build Bin/DSK/CPR/SNA",
+      },
+      {
+        "label": "(CPR) Build&Test",
+        "type": "process",
+        "group": "build",
+        "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
+        "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.cpr"],
+        "dependsOn": "Build Bin/DSK/CPR/SNA",
       }
     ]
   }
