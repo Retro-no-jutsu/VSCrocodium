@@ -2,4 +2,5 @@
     "workbench.colorTheme": "Default Dark+",
     "z80-asm-meter.platform": "cpc",
     "workbench.startupEditor": "readme"
+    "update.mode": "none"
 }
