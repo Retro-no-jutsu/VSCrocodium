@@ -1,3 +1,5 @@
 grunt
 gulp
 jake
+npm
+typescript
