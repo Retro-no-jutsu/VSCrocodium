@@ -39,7 +39,7 @@ Write-host "Z80 Assembly meter " -ForegroundColor Green -NoNewline
 Write-host "version " -NoNewline
 Write-host "$z80asmmeterversion" -ForegroundColor Red
 Write-host ""
-Write-host "Un dossier VSCrocodium sera installé sur votre bureau. Ce dossier est portable et pourra donc être déplacé où bon vous semble par la suite."
+Write-host "Ce script installe un dossier VSCrocodium sur votre bureau"
 Write-host ""
 $continue = read-host "Continuer l'installation ? (o/n)"
 if ($continue -ne "o")
@@ -48,16 +48,17 @@ exit
 }
 
 Write-host ""
-Write-host "Suppression répertoire temporaire d'installation VSCrocodium si présent " -NoNewline
+Write-host "Suppression dossier temporaire d'installation VSCrocodium " -NoNewline
 Remove-Item "$($env:USERPROFILE)\downloads\vscrocodium_install\" -Filter * -Recurse -ErrorAction Ignore
 Write-Host "OK" -ForegroundColor Green
-Write-host "Détection installation VSCrocodium " -NoNewline
+Write-host "Analyse installation VSCrocodium " -NoNewline
 $testinstall = Test-Path -Path "$($env:USERPROFILE)\Desktop\VSCrocodium"
 if ($testinstall -eq $True)
 {
     Write-Host "Oui" -ForegroundColor Red
     Write-host "Attention une installation de VSCrocodium est déja présente sur votre bureau"
     Write-host "Elle va être effacée pour permettre la nouvelle installation"
+    Write-Host ""
     $continue2 = read-host "Continuer ? (o/n)"
     if ($continue2 -eq "o")
     {
