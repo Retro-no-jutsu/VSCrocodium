@@ -88,9 +88,9 @@ Invoke-WebRequest -Uri $z80macroasmlink -OutFile "$($env:USERPROFILE)\downloads\
 Write-Host "." -NoNewline
 Invoke-WebRequest -Uri $z80asmmeterlink -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\z80-asm-meter.vsix" # Telechargement de l'extension Z80-asm-meter
 Write-Host "." -NoNewline
-Start-Process -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -NoNewWindow -ArgumentList "--install-extension `"$($env:USERPROFILE)\downloads\vscrocodium_install\z80-macroasm.vsix`""# Installation de l'extension Z80-macroasm
-Start-Process -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -NoNewWindow -ArgumentList "--install-extension `"$($env:USERPROFILE)\downloads\vscrocodium_install\z80-asm-meter.vsix`"" # Installation de l'extension Z80-asm-meter
-Start-Process -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -NoNewWindow -ArgumentList "--install-extension MS-CEINTL.vscode-language-pack-fr" # Installation de l'extension language FR
+Start-Process -WindowStyle hidden -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -ArgumentList "--install-extension `"$($env:USERPROFILE)\downloads\vscrocodium_install\z80-macroasm.vsix`""# Installation de l'extension Z80-macroasm
+Start-Process -WindowStyle hidden -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -ArgumentList "--install-extension `"$($env:USERPROFILE)\downloads\vscrocodium_install\z80-asm-meter.vsix`"" # Installation de l'extension Z80-asm-meter
+Start-Process -WindowStyle hidden -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -ArgumentList "--install-extension MS-CEINTL.vscode-language-pack-fr" # Installation de l'extension language FR
 Write-Host "." -NoNewline
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/tasks.json -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\data\user-data\User\tasks.json" # Telechargement de fichier task.json (config de build)
 Invoke-WebRequest -Uri $rasmlink -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\data\apps\rasm.exe" # Telechargement du compilateur RASM
