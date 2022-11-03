@@ -71,28 +71,36 @@ if ($testinstall -eq $True)
 else 
 {
     Write-Host "Non" -ForegroundColor Green
-    Write-Host "Lancement de l'installation"
 }
-
+Write-Host "Lancement de l'installation " -NoNewline
 New-Item -ItemType directory -Path "$($env:USERPROFILE)\downloads\vscrocodium_install\" | Out-Null # Creation du dossier d'installation temporaire
+Write-Host "." -NoNewline
 $ProgressPreference = 'SilentlyContinue'
 Invoke-WebRequest -Uri $vscodiumlink -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\vscodium.zip" # Telechargement de VSCodium
+Write-Host "." -NoNewline
 Expand-Archive "$($env:USERPROFILE)\downloads\vscrocodium_install\vscodium.zip" "$($env:USERPROFILE)\Desktop\VSCrocodium" # Extraction de l'archive VSCodium
+Write-Host "." -NoNewline
 New-Item -ItemType directory -Path "$($env:USERPROFILE)\Desktop\VSCrocodium\data" | Out-Null # Création du repertoire data pour activer le mode portable
+Write-Host "." -NoNewline
 New-Item -ItemType directory -Path "$($env:USERPROFILE)\Desktop\VSCrocodium\data\apps" | Out-Null # Création du repertoire apps où seront stockés les programmes tiers
+Write-Host "." -NoNewline
 Invoke-WebRequest -Uri $z80macroasmlink -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\z80-macroasm.vsix" # Telechargement de l'extension Z80-macroasm
+Write-Host "." -NoNewline
 Invoke-WebRequest -Uri $z80asmmeterlink -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\z80-asm-meter.vsix" # Telechargement de l'extension Z80-asm-meter
+Write-Host "." -NoNewline
 Start-Process -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -NoNewWindow -ArgumentList "--install-extension `"$($env:USERPROFILE)\downloads\vscrocodium_install\z80-macroasm.vsix`""# Installation de l'extension Z80-macroasm
 Start-Process -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -NoNewWindow -ArgumentList "--install-extension `"$($env:USERPROFILE)\downloads\vscrocodium_install\z80-asm-meter.vsix`"" # Installation de l'extension Z80-asm-meter
 Start-Process -FilePath "$($env:USERPROFILE)\Desktop\VSCrocodium\bin\codium.cmd" -wait -NoNewWindow -ArgumentList "--install-extension MS-CEINTL.vscode-language-pack-fr" # Installation de l'extension language FR
+Write-Host "." -NoNewline
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/tasks.json -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\data\user-data\User\tasks.json" # Telechargement de fichier task.json (config de build)
 Invoke-WebRequest -Uri $rasmlink -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\data\apps\rasm.exe" # Telechargement du compilateur RASM
 Invoke-WebRequest -Uri http://cngsoft.no-ip.org/cpcec-20220806.zip -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\cpcec.zip" # Telechargement de l'émulateur CPCEC
+Write-Host ". " -NoNewline
 Expand-Archive "$($env:USERPROFILE)\downloads\vscrocodium_install\cpcec.zip" "$($env:USERPROFILE)\Desktop\VSCrocodium\data\apps\cpcec\" # Extraction de l'archive CPCEC
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/settings.json -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\data\user-data\User\settings.json" # Telechargement du fichier de configuration VSCodium
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/croco-icon.svg -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\resources\app\out\vs\workbench\browser\media\code-icon.svg" # Telechargement du logo Croco Amstrad (petite icone fenetre de VSCodium)
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/croco-icon.svg -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\resources\app\out\vs\workbench\browser\parts\editor\media\letterpress-dark.svg" # Telechargement du logo Croco Amstrad (grande icone fenetre principale)
-
+Write-Host "OK" -ForegroundColor Green
 
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/deletelist.txt -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\deletelist.txt" # Telechargement de la liste des fichiers/repertoires à nettoyer
 $files = Get-Content "$($env:USERPROFILE)\downloads\vscrocodium_install\deletelist.txt" # Affectation du fichier de nettoyage à une variable
