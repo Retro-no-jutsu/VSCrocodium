@@ -26,7 +26,7 @@ Write-host "RASM " -ForegroundColor Green -NoNewline
 Write-host "version " -NoNewline
 Write-host "$rasmversion" -ForegroundColor Red
 Write-Host " - " -NoNewline
-Write-host "l'IDE " -NoNewline
+Write-host "l'editeur de code " -NoNewline
 Write-host "VSCodium " -ForegroundColor Green -NoNewline
 Write-host "version " -NoNewline
 Write-host "$vscodiumversion" -ForegroundColor Red
