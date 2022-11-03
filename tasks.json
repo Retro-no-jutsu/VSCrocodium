@@ -20,7 +20,9 @@
         "type": "process",
         "group": "build",
         "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
-        "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.sna"],
+        "args": [
+          "${relativeFileDirname}\\${fileBasenameNoExtension}.sna"
+        ],
         "dependsOn": "Build Bin/DSK/CPR/SNA"
       },
       {
@@ -28,7 +30,9 @@
         "type": "process",
         "group": "build",
         "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
-        "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.cpr"],
+        "args": [
+          "${relativeFileDirname}\\${fileBasenameNoExtension}.cpr"
+        ],
         "dependsOn": "Build Bin/DSK/CPR/SNA"
       }
     ]
