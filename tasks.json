@@ -21,7 +21,7 @@
         "group": "build",
         "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
         "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.sna"],
-        "dependsOn": "Build Bin/DSK/CPR/SNA",
+        "dependsOn": "Build Bin/DSK/CPR/SNA"
       },
       {
         "label": "(CPR) Build&Test",
@@ -29,7 +29,7 @@
         "group": "build",
         "command": "VSCrocodium\\data\\apps\\cpcec\\cpcec.exe",
         "args": ["${relativeFileDirname}\\${fileBasenameNoExtension}.cpr"],
-        "dependsOn": "Build Bin/DSK/CPR/SNA",
+        "dependsOn": "Build Bin/DSK/CPR/SNA"
       }
     ]
   }
