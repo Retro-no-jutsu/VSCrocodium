@@ -93,4 +93,7 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocod
 $files = Get-Content "$($env:USERPROFILE)\downloads\vscrocodium_install\deletelist.txt" # Affectation du fichier de nettoyage à une variable
 Get-ChildItem -Recurse "$($env:USERPROFILE)\VSCrocodium\resources\app\extensions\" -Directory | %{If($_.Name -in $files ){ Remove-Item -LiteralPath $_.FullName -Force -Recurse; }} # Nettoyage dans le repertoire d'extensions de VSCodium
 
-# Remove-Item "$($env:USERPROFILE)\downloads\vscrocodium_install\" -Filter * -Recurse -ErrorAction Ignore # Effacer le repertoire d'installation temporaire
+Start-Sleep -Seconds 2
+Remove-Item "$($env:USERPROFILE)\downloads\vscrocodium_install\" -Filter * -Recurse -ErrorAction Ignore # Effacer le repertoire d'installation temporaire
+
+Write-host "L'installation est terminée !"
