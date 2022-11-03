@@ -75,6 +75,7 @@ else
 }
 
 New-Item -ItemType directory -Path "$($env:USERPROFILE)\downloads\vscrocodium_install\" | Out-Null # Creation du dossier d'installation temporaire
+$ProgressPreference = 'SilentlyContinue'
 Invoke-WebRequest -Uri $vscodiumlink -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\vscodium.zip" # Telechargement de VSCodium
 Expand-Archive "$($env:USERPROFILE)\downloads\vscrocodium_install\vscodium.zip" "$($env:USERPROFILE)\Desktop\VSCrocodium" # Extraction de l'archive VSCodium
 New-Item -ItemType directory -Path "$($env:USERPROFILE)\Desktop\VSCrocodium\data" | Out-Null # Création du repertoire data pour activer le mode portable
