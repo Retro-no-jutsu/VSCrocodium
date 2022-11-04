@@ -102,11 +102,11 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocod
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/croco-icon.svg -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\resources\app\out\vs\workbench\browser\media\code-icon.svg" # Telechargement du logo Croco Amstrad (petite icone fenetre de VSCodium)
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/croco-icon.svg -OutFile "$($env:USERPROFILE)\Desktop\VSCrocodium\resources\app\out\vs\workbench\browser\parts\editor\media\letterpress-dark.svg" # Telechargement du logo Croco Amstrad (grande icone fenetre principale)
 Write-Host "OK" -ForegroundColor Green
-Write-Host "Nettoyage post-installation "
+Write-Host "Nettoyage post-installation " -NoNewline
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/deletelist.txt -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\deletelist.txt" # Telechargement de la liste des fichiers/repertoires à nettoyer
 $files = Get-Content "$($env:USERPROFILE)\downloads\vscrocodium_install\deletelist.txt" # Affectation du fichier de nettoyage à une variable
 Get-ChildItem -Recurse "$($env:USERPROFILE)\Desktop\VSCrocodium\resources\app\extensions\" -Directory | %{If($_.Name -in $files ){ Remove-Item -LiteralPath $_.FullName -Force -Recurse; }} # Nettoyage dans le repertoire d'extensions de VSCodium
 Start-Sleep -Seconds 2
 Remove-Item "$($env:USERPROFILE)\downloads\vscrocodium_install\" -Filter * -Recurse -ErrorAction Ignore # Effacer le repertoire d'installation temporaire
 Write-Host "OK" -ForegroundColor Green
-Write-Host "L'installation est terminée !"
+Write-Host "L'installation est terminée. Bon Code !"
