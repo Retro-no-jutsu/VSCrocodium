@@ -6,11 +6,13 @@ $rasmversion = "1.8b"
 $vscodiumversion = "1.72.2.22289"
 $z80macroasmversion = "0.7.8"
 $z80asmmeterversion = "3.1.0"
+$cpcecversion = "20220806"
 
 $vscodiumlink = "https://github.com/VSCodium/vscodium/releases/download/1.72.2.22289/VSCodium-win32-x64-1.72.2.22289.zip"
 $z80macroasmlink = "https://github.com/mborik/z80-macroasm-vscode/releases/download/v0.7.8/z80-macroasm-0.7.8.vsix"
 $z80asmmeterlink = "https://github.com/theNestruo/z80-asm-meter-vscode/releases/download/3.1.0/z80-asm-meter-3.1.0.vsix"
 $rasmlink = "https://github.com/EdouardBERGE/rasm/releases/download/build25092022/rasm.exe"
+$cpceclink = "http://cngsoft.no-ip.org/cpcec-20220806.zip"
 
 # Entête de présentation
 Write-Host "Bienvenue dans le script d'installation de " -NoNewline
@@ -96,7 +98,7 @@ Start-Process -WindowStyle hidden -FilePath "$($env:USERPROFILE)\VSCrocodium\bin
 Write-Host "." -NoNewline
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/tasks.json -OutFile "$($env:USERPROFILE)\VSCrocodium\data\user-data\User\tasks.json" # Telechargement de fichier task.json (config de build)
 Invoke-WebRequest -Uri $rasmlink -OutFile "$($env:USERPROFILE)\VSCrocodium\data\apps\rasm.exe" # Telechargement du compilateur RASM
-Invoke-WebRequest -Uri http://cngsoft.no-ip.org/cpcec-20220806.zip -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\cpcec.zip" # Telechargement de l'émulateur CPCEC
+Invoke-WebRequest -Uri $cpceclink -OutFile "$($env:USERPROFILE)\downloads\vscrocodium_install\cpcec.zip" # Telechargement de l'émulateur CPCEC
 Write-Host ". " -NoNewline
 Expand-Archive "$($env:USERPROFILE)\downloads\vscrocodium_install\cpcec.zip" "$($env:USERPROFILE)\VSCrocodium\data\apps\cpcec\" # Extraction de l'archive CPCEC
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Retro-no-jutsu/VSCrocodium/main/settings.json -OutFile "$($env:USERPROFILE)\VSCrocodium\data\user-data\User\settings.json" # Telechargement du fichier de configuration VSCodium
