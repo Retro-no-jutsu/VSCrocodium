@@ -56,6 +56,7 @@ $testinstall = Test-Path -Path "$($env:USERPROFILE)\Desktop\VSCrocodium"
 if ($testinstall -eq $True)
 {
     Write-Host "Oui" -ForegroundColor Red
+    Write-host ""
     Write-host "Attention une installation de VSCrocodium existe deja sur votre bureau" -ForegroundColor Red
     Write-host "Sa suppression est obligatoire pour permettre la nouvelle installation" -ForegroundColor Red
     Write-Host ""
