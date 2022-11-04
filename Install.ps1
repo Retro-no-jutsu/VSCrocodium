@@ -52,7 +52,7 @@ Write-host "Suppression dossier temporaire d'installation VSCrocodium " -NoNewli
 Remove-Item "$($env:USERPROFILE)\downloads\vscrocodium_install\" -Filter * -Recurse -ErrorAction Ignore
 Write-Host "OK" -ForegroundColor Green
 Write-host "Ancienne installation VSCrocodium " -NoNewline
-$testinstall = Test-Path -Path "$($env:USERPROFILE)\Desktop\VSCrocodium"
+$testinstall = Test-Path -Path "$($env:USERPROFILE)\VSCrocodium"
 if ($testinstall -eq $True)
 {
     Write-Host "Oui" -ForegroundColor Red
