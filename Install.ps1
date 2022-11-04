@@ -40,6 +40,11 @@ Write-Host " - l'extension " -NoNewline
 Write-host "Z80 Assembly meter " -ForegroundColor Green -NoNewline
 Write-host "version " -NoNewline
 Write-host "$z80asmmeterversion" -ForegroundColor Red
+Write-Host " - " -NoNewline
+Write-host "l'emulateur " -NoNewline
+Write-host "CPCEC " -ForegroundColor Green -NoNewline
+Write-host "version " -NoNewline
+Write-host "$cpcecversion" -ForegroundColor Red
 Write-host ""
 Write-host "Ce script installe un dossier VSCrocodium dans votre dossier utilisateur (user)"
 Write-host ""
